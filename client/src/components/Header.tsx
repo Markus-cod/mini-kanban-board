@@ -55,7 +55,6 @@ function Header() {
     ]
 
     return (
-        <Flex direction={"column"} w={"full"} borderBottom={"1px"} borderColor={"#E2E8F0"}>
             <Flex w={"full"} px={"8"} py={"5"} justify={"space-between"} align={"center"} bg={"#F8FAFC"}>
                 <Breadcrumb.Root size={"lg"} >
                     <Breadcrumb.List>
@@ -98,8 +97,6 @@ function Header() {
 
                 </Flex>
             </Flex>
-
-        </Flex>
     )
 }
 

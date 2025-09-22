@@ -75,11 +75,11 @@ function Task({
                                         Progress
                                     </Progress.Label>
                                     <Progress.ValueText color={"slate.600"} fontWeight={"medium"} textStyle={"sm"}>
-                                        {valueText} %
+                                        {progressValue == 100 ? "Done" : `${valueText} %`}
                                     </Progress.ValueText>
                                 </Flex>
                                 <Progress.Track borderRadius={"full"}>
-                                    <Progress.Range borderRadius={"full"} bg={progressColor} />
+                                    <Progress.Range borderRadius={"full"} bg={progressValue == 100 ? "green.500" : progressValue == 0 ? progressColor : "amber.500"} />
                                 </Progress.Track>
                             </Flex>
                         </Progress.Root>

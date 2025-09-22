@@ -5,8 +5,7 @@ import {
     RowsIcon,
     SlidersIcon,
     SortDescendingIcon,
-    ExportIcon,
-    PlusIcon
+    ExportIcon
 } from '@phosphor-icons/react'
 import PlaceholderLogo from '/PlaceholderLogo.svg'
 
@@ -16,12 +15,12 @@ import {
     Image,
     Tabs,
     Text,
-    Status,
     SimpleGrid
 } from '@chakra-ui/react'
 import { useState } from 'react'
 
 import Task from './Task'
+import TaskColumn from './TaskColumn'
 
 function Project() {
 
@@ -71,74 +70,36 @@ function Project() {
                         </Flex>
                     </Flex>
                 </Flex>
-                <Flex>
-                    <Tabs.Content value="grid" p={8}>
-                        <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} gap={6}>
-                            <Flex alignSelf={"flex-start"} w={"full"} p={4} bg={"#F8FAFC"} borderRadius={"4xl"} borderColor={"#E2E8F0"} borderWidth={"1px"} direction={"column"} gap={4}>
-                                <Flex gap={4}>
-                                    <Flex w={"full"} align={"center"} gap={2}>
-                                        <Status.Root>
-                                            <Status.Indicator bg={"#4F46E5"} />
-                                        </Status.Root>
-                                        <Text textStyle={"lg"} fontWeight={"bold"} color={"#1E293B"}>To Do <span style={{ color: '#94A3B8' }}>(8)</span></Text>
+                <Tabs.Content value="grid" p={8}>
+                    <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} gap={6}>
+                        <TaskColumn statusColor="#4F46E5" title="To Do" count={8}>
+                            <Task />
+                            <Task />
+                            <Task />
+                            <Task />
+                        </TaskColumn>
 
-                                    </Flex>
-                                    <Button variant="outline" rounded={"full"} w={0}>
-                                        <PlusIcon />
-                                    </Button>
-                                </Flex>
-                                <Task></Task>
-                                <Task></Task>
-                                <Task></Task>
-                                <Task></Task>
-                            </Flex>
+                        <TaskColumn statusColor="#4F46E5" title="In Progress" count={8}>
+                            <Task />
+                            <Task />
+                        </TaskColumn>
 
-                            <Flex alignSelf={"flex-start"} w={"full"} p={4} bg={"#F8FAFC"} borderRadius={"4xl"} borderColor={"#E2E8F0"} borderWidth={"1px"} direction={"column"} gap={4}>
-                                <Flex gap={4}>
-                                    <Flex w={"full"} align={"center"} gap={2}>
-                                        <Status.Root>
-                                            <Status.Indicator bg={"#4F46E5"} />
-                                        </Status.Root>
-                                        <Text textStyle={"lg"} fontWeight={"bold"} color={"#1E293B"}>To Do <span style={{ color: '#94A3B8' }}>(8)</span></Text>
-
-                                    </Flex>
-                                    <Button variant="outline" rounded={"full"} w={0}>
-                                        <PlusIcon />
-                                    </Button>
-                                </Flex>
-                                <Task></Task>
-                                <Task></Task>
-                            </Flex>
-
-                            <Flex alignSelf={"flex-start"} w={"full"} p={4} bg={"#F8FAFC"} borderRadius={"4xl"} borderColor={"#E2E8F0"} borderWidth={"1px"} direction={"column"} gap={4}>
-                                <Flex gap={4}>
-                                    <Flex w={"full"} align={"center"} gap={2}>
-                                        <Status.Root>
-                                            <Status.Indicator bg={"#4F46E5"} />
-                                        </Status.Root>
-                                        <Text textStyle={"lg"} fontWeight={"bold"} color={"#1E293B"}>To Do <span style={{ color: '#94A3B8' }}>(8)</span></Text>
-
-                                    </Flex>
-                                    <Button variant="outline" rounded={"full"} w={0}>
-                                        <PlusIcon />
-                                    </Button>
-                                </Flex>
-                                <Task></Task>
-                                <Task></Task>
-                                <Task></Task>
-                            </Flex>
-                        </SimpleGrid>
-                    </Tabs.Content>
-                    <Tabs.Content value="list">
-                        List View
-                    </Tabs.Content>
-                    <Tabs.Content value="column">
-                        Column View
-                    </Tabs.Content>
-                    <Tabs.Content value="row">
-                        Row View
-                    </Tabs.Content>
-                </Flex>
+                        <TaskColumn statusColor="#4F46E5" title="Completed" count={8}>
+                            <Task />
+                            <Task />
+                            <Task />
+                        </TaskColumn>
+                    </SimpleGrid>
+                </Tabs.Content>
+                <Tabs.Content value="list">
+                    List View
+                </Tabs.Content>
+                <Tabs.Content value="column">
+                    Column View
+                </Tabs.Content>
+                <Tabs.Content value="row">
+                    Row View
+                </Tabs.Content>
             </Tabs.Root>
         </Flex>
     )

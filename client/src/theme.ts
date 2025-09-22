@@ -36,6 +36,9 @@ export const config = defineConfig({
                     50: { value: "#FFF1F2" },
                     500: { value: "#F43F5E" },
                 },
+                green: {
+                    500: { value: "#22C55E" },
+                },
             },
 
             // Typography: Plus Jakarta Sans as app default

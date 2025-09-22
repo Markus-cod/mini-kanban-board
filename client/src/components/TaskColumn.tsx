@@ -18,7 +18,7 @@ const TaskColumn: React.FC<TaskColumnProps> = ({ statusColor, title, count, chil
             <Status.Indicator bg={statusColor} />
           </Status.Root>
           <Text textStyle={"lg"} fontWeight={"bold"} color={"slate.800"}>
-            {title} <span style={{ color: 'slate.400' }}>({count})</span>
+            {title} <span style={{ color: 'var(--chakra-colors-slate-400)' }}>({count})</span>
           </Text>
         </Flex>
         <Button variant="outline" rounded={"full"} w={0}>

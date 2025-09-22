@@ -9,7 +9,7 @@ interface TaskColumnProps {
   children?: React.ReactNode
 }
 
-const TaskColumn: React.FC<TaskColumnProps> = ({ statusColor, title, count, children }) => {
+function TaskColumn({ statusColor, title, count, children }: TaskColumnProps) {
   return (
     <Flex alignSelf={"flex-start"} w={"full"} p={4} bg={"slate.50"} borderRadius={"4xl"} borderColor={"slate.200"} borderWidth={"1px"} direction={"column"} gap={4}>
       <Flex gap={4}>

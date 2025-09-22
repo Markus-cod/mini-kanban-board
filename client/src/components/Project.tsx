@@ -73,21 +73,13 @@ function Project() {
                 <Tabs.Content value="grid" p={8}>
                     <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} gap={6}>
                         <TaskColumn statusColor="brand.500" title="To Do" count={8}>
-                            <Task />
-                            <Task />
-                            <Task />
-                            <Task />
+                            <Task badgeText='Important' title='UI/UX'/>
                         </TaskColumn>
 
                         <TaskColumn statusColor="brand.500" title="In Progress" count={8}>
-                            <Task />
-                            <Task />
                         </TaskColumn>
 
                         <TaskColumn statusColor="brand.500" title="Completed" count={8}>
-                            <Task />
-                            <Task />
-                            <Task />
                         </TaskColumn>
                     </SimpleGrid>
                 </Tabs.Content>

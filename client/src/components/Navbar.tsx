@@ -26,7 +26,7 @@ function NavBar(props: { children: React.ReactNode }) {
         justify: "center",
         align: "center",
         borderRadius: "full",
-        _hover: { bg: "#F8FAFC", cursor: "pointer" }
+        _hover: { bg: "slate.50", cursor: "pointer" }
     };
 
     return (
@@ -38,7 +38,7 @@ function NavBar(props: { children: React.ReactNode }) {
                     py={{ sm: "6", base: "3" }}
                     borderRightWidth={{ sm: "1px", base: "0px" }}
                     borderBottomWidth={{ sm: "0px", base: "1px" }}
-                    borderColor={"#E2E8F0"}
+                    borderColor={"slate.200"}
                     h={{ sm: "full", base: "auto" }}
                     w={{ sm: "auto", base: "full" }}
                     top={0}

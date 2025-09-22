@@ -20,7 +20,7 @@ function Header() {
         justify: "center",
         align: "center",
         borderRadius: "full",
-        _hover: { bg: "#eef1f5ff", cursor: "pointer" }
+        _hover: { cursor: "pointer" }
     };
 
     const users = [
@@ -55,7 +55,7 @@ function Header() {
     ]
 
     return (
-            <Flex w={"full"} px={"8"} py={"5"} justify={"space-between"} align={"center"} bg={"#F8FAFC"}>
+            <Flex w={"full"} px={"8"} py={"5"} justify={"space-between"} align={"center"} bg={"slate.50"}>
                 <Breadcrumb.Root size={"lg"} >
                     <Breadcrumb.List>
                         <Breadcrumb.Item>
@@ -71,7 +71,7 @@ function Header() {
                         </Breadcrumb.Item>
                         <Breadcrumb.Separator />
                         <Breadcrumb.Item>
-                            <Breadcrumb.CurrentLink fontWeight={"medium"}> <Flex align={"center"} gap={"1"} color={"#4F46E5"}><SphereIcon size={20} weight={"bold"} /> Project PlanetX </Flex></Breadcrumb.CurrentLink>
+                            <Breadcrumb.CurrentLink fontWeight={"medium"}> <Flex align={"center"} gap={"1"} color={"brand.500"}><SphereIcon size={20} weight={"bold"} /> Project PlanetX </Flex></Breadcrumb.CurrentLink>
                         </Breadcrumb.Item>
                     </Breadcrumb.List>
                 </Breadcrumb.Root>

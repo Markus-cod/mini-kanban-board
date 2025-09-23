@@ -111,7 +111,7 @@ function NavBar(props: { children: React.ReactNode }) {
                 </Flex>
 
             </Flex >
-            <Flex ml={{ sm: "20", base: "0" }} mt={{ sm: "0", base: "14" }} w={"100%-80px"} >
+            <Flex ml={{ sm: "20", base: "0" }} mt={{ sm: "0", base: "16" }} w={"100%-80px"} >
                 {props.children}
             </Flex>
         </>

@@ -4,12 +4,14 @@ import {
     Avatar,
     AvatarGroup,
     Button,
+    useBreakpointValue
 } from '@chakra-ui/react'
 import {
     HouseSimpleIcon,
     MagnifyingGlassIcon,
     PlusIcon,
     SphereIcon,
+    CaretLeftIcon,
 } from '@phosphor-icons/react'
 
 function Header() {
@@ -54,49 +56,63 @@ function Header() {
         },
     ]
 
+    const visibleCount = useBreakpointValue({ base: 3, sm: 4, md: 7 }) || 7
+
     return (
-            <Flex w={"full"} px={"8"} py={"5"} justify={"space-between"} align={"center"} bg={"slate.50"}>
-                <Breadcrumb.Root size={"lg"} >
-                    <Breadcrumb.List>
-                        <Breadcrumb.Item>
-                            <Breadcrumb.Link href="#"><HouseSimpleIcon size={"20"} weight={"bold"} /></Breadcrumb.Link>
-                        </Breadcrumb.Item>
-                        <Breadcrumb.Separator />
-                        <Breadcrumb.Item>
-                            <Breadcrumb.Link href="#" fontWeight={"medium"}>Dashboard</Breadcrumb.Link>
-                        </Breadcrumb.Item>
-                        <Breadcrumb.Separator />
-                        <Breadcrumb.Item>
-                            <Breadcrumb.Link href="#" fontWeight={"medium"}>Project</Breadcrumb.Link>
-                        </Breadcrumb.Item>
-                        <Breadcrumb.Separator />
-                        <Breadcrumb.Item>
-                            <Breadcrumb.CurrentLink fontWeight={"medium"}> <Flex align={"center"} gap={"1"} color={"brand.500"}><SphereIcon size={20} weight={"bold"} /> Project PlanetX </Flex></Breadcrumb.CurrentLink>
-                        </Breadcrumb.Item>
-                    </Breadcrumb.List>
-                </Breadcrumb.Root>
+        <Flex w={"full"} px={{ sm: "8", base: "4" }} py={{ sm: "5", base: "6" }} justify={"space-between"} align={{ base: "flex-start", sm: "center" }} bg={"slate.50"} direction={{ sm: "row", base: "column" }} gap={{ sm: "0", base: "4" }}>
+            <Breadcrumb.Root size={"lg"} display={{ sm: "flex", base: "none" }}>
+                <Breadcrumb.List>
+                    <Breadcrumb.Item>
+                        <Breadcrumb.Link href="#"><HouseSimpleIcon size={"20"} weight={"bold"} /></Breadcrumb.Link>
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Separator />
+                    {useBreakpointValue({ sm: false, md: true }) ?
+                        <>
+                            <Breadcrumb.Item>
+                                <Breadcrumb.Link href="#" fontWeight={"medium"}>Dashboard</Breadcrumb.Link>
+                            </Breadcrumb.Item>
+                            <Breadcrumb.Separator />
+                            <Breadcrumb.Item>
+                                <Breadcrumb.Link href="#" fontWeight={"medium"}>Project</Breadcrumb.Link>
+                            </Breadcrumb.Item>
+                        </> :
+                        <Breadcrumb.Ellipsis />}
+                    <Breadcrumb.Separator />
+                    <Breadcrumb.Item>
+                        <Breadcrumb.CurrentLink fontWeight={"medium"}> <Flex align={"center"} gap={"1"} color={"brand.500"}><SphereIcon size={20} weight={"bold"} /> Project PlanetX </Flex></Breadcrumb.CurrentLink>
+                    </Breadcrumb.Item>
+                </Breadcrumb.List>
+            </Breadcrumb.Root>
+            <Button p={"0"} border={"0"} h={"auto"} bg={"transparent"} color={"brand.500"} display={{ sm: "none", base: "flex" }} fontWeight={"bold"}>
+                <CaretLeftIcon weight="bold" size={20} /> Back to Project
+            </Button>
 
-                <Flex align={"center"} gap={"2"}>
+            <Flex align={"center"} gap={"2"}>
 
-                    <Flex {...iconFlexProps}>
-                        <MagnifyingGlassIcon size={"24"} />
-                    </Flex>
-
-                    <AvatarGroup size="lg" stacking="last-on-top">
-                        {users.map((user) => (
-                            <Avatar.Root key={user.name} size={"md"}>
-                                <Avatar.Fallback name={user.name} />
-                                <Avatar.Image src={user.src} />
-                            </Avatar.Root>
-                        ))}
-                    </AvatarGroup>
-
-                    <Button variant="outline" rounded={"full"}>
-                        Invite <PlusIcon />
-                    </Button>
-
+                <Flex {...iconFlexProps}>
+                    <MagnifyingGlassIcon size={"24"} />
                 </Flex>
+
+                <AvatarGroup size="lg" stacking="last-on-top">
+                    {users.slice(0, visibleCount).map((user) => (
+                        <Avatar.Root key={user.name} size={"md"} bg={"indigo.50"}>
+                            <Avatar.Fallback name={user.name} color={"brand.500"} />
+                            <Avatar.Image src={user.src} />
+                        </Avatar.Root>
+                    ))}
+                    {(7 - visibleCount) > 0 &&
+                        <Avatar.Root bg={"indigo.50"}>
+                            <Avatar.Fallback color={"brand.500"}>+{7 - visibleCount}</Avatar.Fallback>
+                        </Avatar.Root>
+                    }
+                </AvatarGroup>
+
+                <Button variant="outline" rounded={"full"}>
+                    Invite <PlusIcon />
+                </Button>
+
             </Flex>
+        </Flex>
     )
 }
 

@@ -160,11 +160,11 @@ function Project() {
                     const v = details.value
                     if (isView(v)) setView(v)
                 }}>
-                <Flex p={8} direction={"row"} gap={4} borderBottomWidth={"1px"} borderColor={"slate.200"}>
-                    <Image src={PlaceholderLogo} w={24} h={24} />
-                    <Flex direction={"column"} w={"full"} gap={3}>
-                        <Flex direction={"row"} justify={"space-between"} align={"center"}>
-                            <Text fontWeight={"bold"} textStyle={"3xl"}>Project PlanetX</Text>
+                <Flex px={{ base: 4, sm: 8 }} py={{ base: 6, sm: 8 }} direction={{ base: "column", sm: "row" }} gap={4} borderBottomWidth={"1px"} borderColor={"slate.200"}>
+                    <Image src={PlaceholderLogo} w={{ base: 16, sm: 24 }} h={{ base: 16, sm: 24 }} />
+                    <Flex direction={"column"} w={"full"} gap={{ base: 4, sm: 3 }}>
+                        <Flex direction={{ base: "column", sm: "row" }} justify={"space-between"} align={{ base: "flex-start", sm: "center" }} gap={{ base: 4, sm: 0 }}>
+                            <Text fontWeight={"bold"} textStyle={{ base: "2xl", sm: "3xl" }}>Project PlanetX</Text>
                             <Flex direction={"row"} gap={3} align={"center"}>
                                 <Button p={"0"} border={"0"} h={"auto"} bg={"transparent"} _hover={{ bg: "transparent", color: "brand.500" }} color={"slate.600"}>
                                     <GridFourIcon weight="bold" size={20} />Grid View
@@ -193,11 +193,11 @@ function Project() {
                                 </Tabs.Trigger>
                             </Tabs.List>
 
-                            <Button bg={"brand.500"} rounded={"full"} size={"xl"}>Export Data<ExportIcon /></Button>
+                            <Button bg={"brand.500"} rounded={"full"} size={"xl"} display={{ base: "none", sm: "flex" }}>Export Data<ExportIcon /></Button>
                         </Flex>
                     </Flex>
                 </Flex>
-                <Tabs.Content value="grid" p={8}>
+                <Tabs.Content value="grid" p={8} px={{ base: 4, sm: 8 }}>
                     <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
                         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} gap={6}>
                             <DroppableColumn id="todo">

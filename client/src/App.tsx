@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <NavBar>
-        <Flex direction={"column"} w={"full"} borderBottom={"1px"} borderColor={"slate.200000000"}>
+        <Flex direction={"column"} w={"full"} overflow={"hidden"}>
           <Header />
           <Project />
         </Flex>

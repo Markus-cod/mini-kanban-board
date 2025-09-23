@@ -31,87 +31,86 @@ function NavBar(props: { children: React.ReactNode }) {
 
     return (
         <>
-            <nav>
-                <Flex
-                    direction={{sm:"column", base:"row"}}
-                    px={"4"}
-                    py={{ sm: "6", base: "3" }}
-                    borderRightWidth={{ sm: "1px", base: "0px" }}
-                    borderBottomWidth={{ sm: "0px", base: "1px" }}
-                    borderColor={"slate.200"}
-                    h={{ sm: "full", base: "auto" }}
-                    w={{ sm: "auto", base: "full" }}
-                    top={0}
-                    bg={"white"}
-                    position={"fixed"}
-                    justify={"space-between"}>
+            <Flex
+                as="nav"
+                direction={{ sm: "column", base: "row" }}
+                px={"4"}
+                py={{ sm: "6", base: "3" }}
+                borderRightWidth={{ sm: "1px", base: "0px" }}
+                borderBottomWidth={{ sm: "0px", base: "1px" }}
+                borderColor={"slate.200"}
+                h={{ sm: "full", base: "auto" }}
+                w={{ sm: "auto", base: "full" }}
+                top={0}
+                bg={"white"}
+                position={"fixed"}
+                justify={"space-between"}
+                zIndex={10}>
+                <Flex direction={{ sm: "column", base: "row" }} gap={{ sm: "8", base: "2" }} >
 
-                    <Flex direction={{ sm: "column", base: "row" }} gap={{ sm: "8", base: "2" }} >
-
-                        <Flex justify={"center"} align={"center"}>
-                            <Image src={LogoMark} w={8} display={{ sm: "flex", base: "none" }} />
-                            <Image src={Logo} h={8} display={{ sm: "none", base: "flex" }} />
-                        </Flex>
-
-                        <Flex direction={"column"} gap={"4"} display={{ sm: "flex", base: "none" }}>
-                            <Flex {...iconFlexProps}>
-                                <a href="#">
-                                    <HouseSimpleIcon weight="bold" size={24} />
-                                </a>
-                            </Flex>
-                            <Flex {...iconFlexProps}>
-                                <a href="#">
-                                    <ChartBarIcon weight="bold" size={24} />
-                                </a>
-                            </Flex>
-                            <Flex {...iconFlexProps}>
-                                <a href="#">
-                                    <UserIcon weight="bold" size={24} />
-                                </a>
-                            </Flex>
-                            <Flex {...iconFlexProps}>
-                                <a href="#">
-                                    <CalendarBlankIcon weight="bold" size={24} />
-                                </a>
-                            </Flex>
-                            <Flex {...iconFlexProps}>
-                                <a href="#">
-                                    <LightningIcon weight="bold" size={24} />
-                                </a>
-                            </Flex>
-                            <Flex {...iconFlexProps}>
-                                <a href="#">
-                                    <BellIcon weight="bold" size={24} />
-                                </a>
-                            </Flex>
-                        </Flex>
-
+                    <Flex justify={"center"} align={"center"}>
+                        <Image src={LogoMark} w={8} display={{ sm: "flex", base: "none" }} />
+                        <Image src={Logo} h={8} display={{ sm: "none", base: "flex" }} />
                     </Flex>
 
-                    <Flex direction="column" gap="4" display={{ sm: "flex", base: "none" }}>
+                    <Flex direction={"column"} gap={"4"} display={{ sm: "flex", base: "none" }}>
                         <Flex {...iconFlexProps}>
                             <a href="#">
-                                <GearIcon weight="bold" size={24} />
+                                <HouseSimpleIcon weight="bold" size={24} />
                             </a>
                         </Flex>
                         <Flex {...iconFlexProps}>
                             <a href="#">
-                                <AvatarGroup>
-                                    <Avatar.Root>
-                                        <Avatar.Fallback name="Pero Peric" />
-                                        <Avatar.Image src='https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250' />
-                                    </Avatar.Root>
-                                </AvatarGroup>
+                                <ChartBarIcon weight="bold" size={24} />
+                            </a>
+                        </Flex>
+                        <Flex {...iconFlexProps}>
+                            <a href="#">
+                                <UserIcon weight="bold" size={24} />
+                            </a>
+                        </Flex>
+                        <Flex {...iconFlexProps}>
+                            <a href="#">
+                                <CalendarBlankIcon weight="bold" size={24} />
+                            </a>
+                        </Flex>
+                        <Flex {...iconFlexProps}>
+                            <a href="#">
+                                <LightningIcon weight="bold" size={24} />
+                            </a>
+                        </Flex>
+                        <Flex {...iconFlexProps}>
+                            <a href="#">
+                                <BellIcon weight="bold" size={24} />
                             </a>
                         </Flex>
                     </Flex>
 
-                    <Flex display={{ sm: "none", base: "flex" }} {...iconFlexProps} w={10} h={10}>
-                        <ListIcon weight="bold" size={24} />
+                </Flex>
+
+                <Flex direction="column" gap="4" display={{ sm: "flex", base: "none" }}>
+                    <Flex {...iconFlexProps}>
+                        <a href="#">
+                            <GearIcon weight="bold" size={24} />
+                        </a>
                     </Flex>
-                    
-                </Flex >
-            </nav>
+                    <Flex {...iconFlexProps}>
+                        <a href="#">
+                            <AvatarGroup>
+                                <Avatar.Root>
+                                    <Avatar.Fallback name="Pero Peric" />
+                                    <Avatar.Image src='https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250' />
+                                </Avatar.Root>
+                            </AvatarGroup>
+                        </a>
+                    </Flex>
+                </Flex>
+
+                <Flex display={{ sm: "none", base: "flex" }} {...iconFlexProps} w={10} h={10}>
+                    <ListIcon weight="bold" size={24} />
+                </Flex>
+
+            </Flex >
             <Flex ml={{ sm: "20", base: "0" }} mt={{ sm: "0", base: "14" }} w={"100%-80px"} >
                 {props.children}
             </Flex>
